@@ -175,3 +175,45 @@ footer {
     opacity: 1;
     transform: translate(0);
 }
+
+/* ===== MOBILE FIX ===== */
+@media (max-width: 768px) {
+
+    body {
+        background-attachment: scroll;
+    }
+
+    body::before {
+        background: rgba(0,0,0,0.8);
+    }
+
+    section {
+        background: rgba(0,0,0,0.9);
+        margin: 10px;
+        padding: 40px 20px;
+    }
+
+    .hero {
+        flex-direction: column;
+        padding: 40px 20px;
+    }
+
+    .hero-left,
+    .hero-right {
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .course-card,
+    .benefit-card,
+    .stat-box {
+        padding: 15px;
+    }
+}

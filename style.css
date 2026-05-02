@@ -9,7 +9,7 @@ body {
     font-family: 'Poppins', sans-serif;
 
     /* 🌄 Background Image */
-    background: url("glenn-carstens-peters-npxXWgQ33ZQ-unsplash.jpg") no-repeat center center/cover;
+    background-image: url("https://sharique-code93.github.io/Master-Tech-skills/glenn-carstens-peters-npxXWgQ33ZQ-unsplash.jpg") no-repeat center center/cover;
 
     /* Optional overlay effect */
     background-attachment: fixed;

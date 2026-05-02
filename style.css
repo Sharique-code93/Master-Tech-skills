@@ -8,12 +8,22 @@
 body {
     font-family: 'Poppins', sans-serif;
 
-    /* 🌄 Background Image */
-    background-image: url("https://sharique-code93.github.io/Master-Tech-skills/glenn-carstens-peters-npxXWgQ33ZQ-unsplash.jpg") no-repeat center center/cover;
-
-    /* Optional overlay effect */
+    background: url("https://sharique-code93.github.io/Master-Tech-skills/glenn-carstens-peters-npxXWgQ33ZQ-unsplash.jpg") no-repeat center center/cover;
     background-attachment: fixed;
     color: #fff;
+    position: relative;
+}
+
+/* Dark Overlay */
+body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.65);
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
 /* Navbar */
@@ -22,7 +32,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 20px 50px;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.7);
 }
 
 .logo {
@@ -41,35 +51,31 @@ nav a {
     text-decoration: none;
 }
 
-/* Hero Section */
+/* Hero */
 .hero {
     display: flex;
     justify-content: space-between;
     padding: 80px 50px;
 }
 
-.hero-left {
-    max-width: 50%;
-}
-
-.hero-right {
-    max-width: 40%;
-}
+.hero-left { max-width: 50%; }
+.hero-right { max-width: 40%; }
 
 /* Glass Card */
 .glass-card {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.08);
     padding: 20px;
     border-radius: 10px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
 }
 
 /* Buttons */
 .btn {
     padding: 10px 20px;
     margin-right: 10px;
-    text-decoration: none;
     border-radius: 5px;
+    text-decoration: none;
+    transition: all 0.3s ease;
 }
 
 .primary-btn {
@@ -82,10 +88,15 @@ nav a {
     color: #fff;
 }
 
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
 /* Sections */
 section {
     padding: 60px 50px;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.75);
     margin: 20px;
     border-radius: 10px;
 }
@@ -106,6 +117,14 @@ section {
     padding: 20px;
     border-radius: 10px;
     text-align: center;
+    transition: all 0.3s ease;
+}
+
+.course-card:hover,
+.benefit-card:hover,
+.stat-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
 }
 
 /* Form */
@@ -113,8 +132,8 @@ input, select, textarea {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
-    border: none;
     border-radius: 5px;
+    border: none;
 }
 
 button {
@@ -131,4 +150,28 @@ footer {
     text-align: center;
     padding: 30px;
     background: rgba(0,0,0,0.7);
+}
+
+/* ===== ANIMATIONS ===== */
+.fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.fade-left {
+    opacity: 0;
+    transform: translateX(-40px);
+    transition: all 0.8s ease;
+}
+
+.fade-right {
+    opacity: 0;
+    transform: translateX(40px);
+    transition: all 0.8s ease;
+}
+
+.show {
+    opacity: 1;
+    transform: translate(0);
 }

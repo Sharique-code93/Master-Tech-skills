@@ -1,49 +1,234 @@
 <!DOCTYPE html>
-                <button type="submit">Submit Registration</button>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Tech Skills - Oracle SQL & PL/SQL Training</title>
 
-                <input type="hidden" name="_captcha" value="false">
-            </form>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <header>
+        <div class="logo">Master Tech Skills</div>
+
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#course">Course</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+                <li><a href="#register">Register</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <div class="hero-left">
+
+            <span class="tag">🔥 Live Online Training</span>
+
+            <h1>Become Oracle SQL & PL/SQL Expert</h1>
+
+            <p>
+                Learn Oracle SQL, PL/SQL, Procedures, Functions, Packages,
+                Triggers, Performance Tuning, Real-Time Production Support,
+                and Interview Preparation from industry-level training.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#register" class="btn primary-btn">Enroll Now</a>
+
+                <a href="https://wa.me/919999999999"
+                   class="btn secondary-btn">
+                   WhatsApp
+                </a>
+            </div>
         </div>
+
+        <div class="hero-right">
+
+            <div class="glass-card">
+
+                <h2>🚀 Upcoming Batch</h2>
+
+                <p><strong>Mode:</strong> Online Live</p>
+                <p><strong>Duration:</strong> 2 Months</p>
+                <p><strong>Level:</strong> Beginner to Advanced</p>
+                <p><strong>Mock Interviews:</strong> Included</p>
+
+                <a href="#register" class="join-btn">
+                    Book Your Seat
+                </a>
+
+            </div>
+
+        </div>
+
     </section>
 
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <h2>Student Feedback</h2>
+    <!-- Stats -->
+    <section class="stats-section">
 
-        <div class="testimonial-grid">
-            <div class="testimonial-card">
-                <p>
-                    "Excellent explanation of PL/SQL concepts and production support scenarios."
-                </p>
-                <h4>- Student</h4>
-            </div>
-
-            <div class="testimonial-card">
-                <p>
-                    "Very useful for interview preparation and real-time project understanding."
-                </p>
-                <h4>- Oracle Developer</h4>
-            </div>
+        <div class="stat-box">
+            <h2>500+</h2>
+            <p>Students Trained</p>
         </div>
+
+        <div class="stat-box">
+            <h2>100+</h2>
+            <p>Interview Questions</p>
+        </div>
+
+        <div class="stat-box">
+            <h2>50+</h2>
+            <p>Production Scenarios</p>
+        </div>
+
+        <div class="stat-box">
+            <h2>24x7</h2>
+            <p>Support</p>
+        </div>
+
+    </section>
+
+    <!-- Course -->
+    <section class="course-section" id="course">
+
+        <div class="section-title">
+            <h2>Course Topics</h2>
+            <p>Industry-ready Oracle SQL & PL/SQL training modules</p>
+        </div>
+
+        <div class="course-grid">
+
+            <div class="course-card">Oracle SQL Fundamentals</div>
+            <div class="course-card">Joins & Subqueries</div>
+            <div class="course-card">Stored Procedures</div>
+            <div class="course-card">Functions & Packages</div>
+            <div class="course-card">Triggers</div>
+            <div class="course-card">Collections</div>
+            <div class="course-card">Bulk Collect & FORALL</div>
+            <div class="course-card">Performance Tuning</div>
+            <div class="course-card">Debugging</div>
+            <div class="course-card">Interview Preparation</div>
+
+        </div>
+
+    </section>
+
+    <!-- Benefits -->
+    <section class="benefits-section" id="benefits">
+
+        <div class="section-title">
+            <h2>Why Students Join Us?</h2>
+        </div>
+
+        <div class="benefits-grid">
+
+            <div class="benefit-card">
+                <div class="icon">💻</div>
+                <h3>Live Practical Training</h3>
+                <p>Hands-on coding with real-time Oracle projects.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="icon">🎯</div>
+                <h3>Interview Focused</h3>
+                <p>Scenario-based interview preparation and mock sessions.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="icon">📚</div>
+                <h3>Assignments</h3>
+                <p>Daily practice tasks and SQL challenges.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="icon">🏆</div>
+                <h3>Career Guidance</h3>
+                <p>Resume support and career roadmap guidance.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Registration -->
+    <section class="register-section" id="register">
+
+        <div class="register-container">
+
+            <div class="register-left">
+
+                <h2>Register For Free Demo Class</h2>
+
+                <p>
+                    Fill the form and reserve your seat for upcoming Oracle SQL & PL/SQL batch.
+                </p>
+
+            </div>
+
+            <div class="register-form">
+
+                <form action="https://formsubmit.co/your-email@gmail.com" method="POST">
+
+                    <input type="text" placeholder="Full Name" required>
+
+                    <input type="email" placeholder="Email Address" required>
+
+                    <input type="tel" placeholder="Mobile Number" required>
+
+                    <select>
+                        <option>Experience Level</option>
+                        <option>Fresher</option>
+                        <option>0-2 Years</option>
+                        <option>2-5 Years</option>
+                        <option>5+ Years</option>
+                    </select>
+
+                    <textarea rows="4" placeholder="Your Message"></textarea>
+
+                    <button type="submit">
+                        Submit Registration
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
     </section>
 
     <!-- Footer -->
     <footer id="contact">
+
         <h2>Contact</h2>
 
         <p>Email: your-email@gmail.com</p>
         <p>Phone: +91 9999999999</p>
 
-        <div class="social-links">
+        <div class="footer-links">
             <a href="https://github.com">GitHub</a>
             <a href="https://linkedin.com">LinkedIn</a>
             <a href="https://wa.me/919999999999">WhatsApp</a>
         </div>
 
         <p class="copyright">
-            © 2026 PL/SQL Mastery. All Rights Reserved.
+            © 2026 Master Tech Skills. All Rights Reserved.
         </p>
+
     </footer>
 
-    <script src="script.js"></script>
 </body>
+</html>

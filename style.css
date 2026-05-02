@@ -5,34 +5,40 @@
     box-sizing: border-box;
 }
 
+/* ===== BODY ===== */
 body {
     font-family: 'Poppins', sans-serif;
-
     background: url("https://sharique-code93.github.io/Master-Tech-skills/glenn-carstens-peters-npxXWgQ33ZQ-unsplash.jpg") no-repeat center center/cover;
     background-attachment: fixed;
     color: #fff;
     position: relative;
 }
 
-/* Dark Overlay */
+/* ===== PREMIUM OVERLAY (FIX DIRTY LOOK) ===== */
 body::before {
     content: "";
     position: fixed;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.65);
+    background: linear-gradient(
+        to right,
+        rgba(0,0,0,0.75),
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0.75)
+    );
     top: 0;
     left: 0;
     z-index: -1;
 }
 
-/* Navbar */
+/* ===== NAVBAR ===== */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 50px;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
 }
 
 .logo {
@@ -51,25 +57,43 @@ nav a {
     text-decoration: none;
 }
 
-/* Hero */
+/* ===== HERO ===== */
 .hero {
     display: flex;
     justify-content: space-between;
     padding: 80px 50px;
+    align-items: center;
 }
 
-.hero-left { max-width: 50%; }
-.hero-right { max-width: 40%; }
+.hero-left {
+    max-width: 50%;
+}
 
-/* Glass Card */
+.hero-right {
+    max-width: 40%;
+}
+
+/* Text clarity */
+.hero h1 {
+    font-size: 42px;
+    line-height: 1.3;
+}
+
+.hero p {
+    margin: 15px 0;
+    color: rgba(255,255,255,0.85);
+}
+
+/* ===== GLASS CARD ===== */
 .glass-card {
-    background: rgba(255,255,255,0.08);
-    padding: 20px;
-    border-radius: 10px;
-    backdrop-filter: blur(12px);
+    background: rgba(255,255,255,0.12);
+    padding: 25px;
+    border-radius: 12px;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.15);
 }
 
-/* Buttons */
+/* ===== BUTTONS ===== */
 .btn {
     padding: 10px 20px;
     margin-right: 10px;
@@ -93,15 +117,15 @@ nav a {
     box-shadow: 0 10px 20px rgba(0,0,0,0.4);
 }
 
-/* Sections */
+/* ===== SECTIONS ===== */
 section {
     padding: 60px 50px;
-    background: rgba(0,0,0,0.75);
+    background: rgba(0,0,0,0.6);
     margin: 20px;
-    border-radius: 10px;
+    border-radius: 12px;
 }
 
-/* Grid */
+/* ===== GRID ===== */
 .course-grid,
 .benefits-grid {
     display: grid;
@@ -109,7 +133,7 @@ section {
     gap: 20px;
 }
 
-/* Cards */
+/* ===== CARDS ===== */
 .course-card,
 .benefit-card,
 .stat-box {
@@ -127,7 +151,7 @@ section {
     box-shadow: 0 10px 25px rgba(0,0,0,0.5);
 }
 
-/* Form */
+/* ===== FORM ===== */
 input, select, textarea {
     width: 100%;
     padding: 10px;
@@ -145,7 +169,7 @@ button {
     border-radius: 5px;
 }
 
-/* Footer */
+/* ===== FOOTER ===== */
 footer {
     text-align: center;
     padding: 30px;
@@ -183,12 +207,13 @@ footer {
         background-attachment: scroll;
     }
 
+    /* Cleaner overlay for mobile */
     body::before {
-        background: rgba(0,0,0,0.8);
+        background: rgba(0,0,0,0.65);
     }
 
     section {
-        background: rgba(0,0,0,0.9);
+        background: rgba(0,0,0,0.85);
         margin: 10px;
         padding: 40px 20px;
     }

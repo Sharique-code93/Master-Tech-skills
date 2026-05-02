@@ -263,3 +263,182 @@ footer{
     }
 
 }
+
+/* =========================
+   MOBILE RESPONSIVE DESIGN
+========================= */
+
+@media screen and (max-width: 992px){
+
+    /* HERO SECTION */
+
+    .hero{
+
+        flex-direction: column;
+
+        text-align: center;
+
+        padding-top: 140px;
+
+        gap: 50px;
+    }
+
+    .hero-left,
+    .hero-right{
+
+        width: 100%;
+    }
+
+    .hero h1{
+
+        font-size: 42px;
+
+        line-height: 1.4;
+    }
+
+    .hero p{
+
+        font-size: 16px;
+    }
+
+    .hero-buttons{
+
+        justify-content: center;
+
+        flex-wrap: wrap;
+    }
+
+    /* REGISTER SECTION */
+
+    .register-container{
+
+        grid-template-columns: 1fr;
+    }
+
+    /* NAVBAR */
+
+    header{
+
+        flex-direction: column;
+
+        gap: 20px;
+
+        padding: 20px;
+    }
+
+    nav ul{
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 15px;
+    }
+
+    /* COURSE & BENEFITS */
+
+    .course-grid,
+    .benefits-grid,
+    .testimonial-grid{
+
+        grid-template-columns: 1fr;
+    }
+
+    /* SECTION TITLES */
+
+    .section-title h2{
+
+        font-size: 36px;
+    }
+
+    .register-left h2{
+
+        font-size: 36px;
+    }
+
+}
+
+
+/* EXTRA SMALL DEVICES */
+
+@media screen and (max-width: 600px){
+
+    .hero{
+
+        padding: 130px 20px 60px;
+    }
+
+    .hero h1{
+
+        font-size: 32px;
+    }
+
+    .hero p{
+
+        font-size: 15px;
+    }
+
+    .btn{
+
+        width: 100%;
+
+        text-align: center;
+    }
+
+    .hero-buttons{
+
+        flex-direction: column;
+    }
+
+    .glass-card{
+
+        padding: 25px;
+    }
+
+    .glass-card h2{
+
+        font-size: 26px;
+    }
+
+    .section-title h2{
+
+        font-size: 30px;
+    }
+
+    .stat-box h2{
+
+        font-size: 34px;
+    }
+
+    .register-form{
+
+        padding: 25px;
+    }
+
+    input,
+    select,
+    textarea{
+
+        font-size: 15px;
+    }
+
+    button{
+
+        width: 100%;
+    }
+
+    footer{
+
+        padding: 50px 20px;
+    }
+
+    .footer-links{
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 15px;
+    }
+
+}

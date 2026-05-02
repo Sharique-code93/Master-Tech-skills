@@ -1,14 +1,28 @@
+/* =========================
+   GLOBAL STYLES
+========================= */
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     font-family:'Poppins',sans-serif;
     background:#f5f7ff;
     color:#222;
+    overflow-x:hidden;
 }
+
+
+/* =========================
+   HEADER / NAVBAR
+========================= */
 
 header{
     display:flex;
@@ -19,6 +33,8 @@ header{
     color:white;
     position:sticky;
     top:0;
+    z-index:1000;
+    flex-wrap:wrap;
 }
 
 .logo{
@@ -41,6 +57,11 @@ nav ul li a{
 nav ul li a:hover{
     color:#38bdf8;
 }
+
+
+/* =========================
+   HERO SECTION
+========================= */
 
 .hero{
     display:flex;
@@ -66,11 +87,13 @@ nav ul li a:hover{
     border-radius:30px;
     display:inline-block;
     margin-bottom:20px;
+    font-weight:600;
 }
 
 .hero h1{
     font-size:55px;
     margin-bottom:20px;
+    line-height:1.3;
 }
 
 .hero p{
@@ -84,11 +107,21 @@ nav ul li a:hover{
     gap:20px;
 }
 
+
+/* =========================
+   BUTTONS
+========================= */
+
 .btn{
     padding:15px 30px;
     border-radius:10px;
     text-decoration:none;
     font-weight:600;
+    transition:0.3s;
+}
+
+.btn:hover{
+    transform:translateY(-3px);
 }
 
 .primary-btn{
@@ -101,11 +134,17 @@ nav ul li a:hover{
     color:#0f172a;
 }
 
+
+/* =========================
+   GLASS CARD
+========================= */
+
 .glass-card{
     background:rgba(255,255,255,0.15);
     padding:40px;
     border-radius:20px;
     backdrop-filter:blur(10px);
+    box-shadow:0 5px 15px rgba(0,0,0,0.15);
 }
 
 .join-btn{
@@ -116,7 +155,17 @@ nav ul li a:hover{
     color:white;
     text-decoration:none;
     border-radius:10px;
+    transition:0.3s;
 }
+
+.join-btn:hover{
+    transform:translateY(-3px);
+}
+
+
+/* =========================
+   STATS SECTION
+========================= */
 
 .stats-section{
     display:grid;
@@ -131,12 +180,18 @@ nav ul li a:hover{
     border-radius:20px;
     text-align:center;
     box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    transition:0.3s;
 }
 
 .stat-box h2{
     color:#2563eb;
     margin-bottom:10px;
 }
+
+
+/* =========================
+   SECTION TITLE
+========================= */
 
 .section-title{
     text-align:center;
@@ -147,6 +202,15 @@ nav ul li a:hover{
     font-size:42px;
     margin-bottom:10px;
 }
+
+.section-title p{
+    color:#555;
+}
+
+
+/* =========================
+   COURSE / BENEFITS
+========================= */
 
 .course-section,
 .benefits-section,
@@ -162,7 +226,9 @@ nav ul li a:hover{
 }
 
 .course-card,
-.benefit-card{
+.benefit-card,
+.stat-box,
+.register-form{
     background:white;
     padding:35px;
     border-radius:20px;
@@ -172,14 +238,24 @@ nav ul li a:hover{
 }
 
 .course-card:hover,
-.benefit-card:hover{
+.benefit-card:hover,
+.stat-box:hover,
+.register-form:hover{
+
     transform:translateY(-10px);
+
+    box-shadow:0 15px 30px rgba(0,0,0,0.15);
 }
 
 .icon{
     font-size:40px;
     margin-bottom:15px;
 }
+
+
+/* =========================
+   REGISTER SECTION
+========================= */
 
 .register-container{
     display:grid;
@@ -189,10 +265,7 @@ nav ul li a:hover{
 }
 
 .register-form{
-    background:white;
     padding:40px;
-    border-radius:20px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.08);
 }
 
 form{
@@ -208,17 +281,35 @@ textarea{
     border:1px solid #ccc;
     border-radius:10px;
     font-size:16px;
+    outline:none;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+    border-color:#2563eb;
 }
 
 button{
-    background:#2563eb;
+    background:linear-gradient(to right,#2563eb,#38bdf8);
     color:white;
     border:none;
     padding:16px;
-    border-radius:10px;
+    border-radius:12px;
     font-size:16px;
     cursor:pointer;
+    font-weight:600;
+    transition:0.3s;
 }
+
+button:hover{
+    transform:translateY(-3px);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
 
 footer{
     background:#0f172a;
@@ -237,11 +328,22 @@ footer{
     text-decoration:none;
 }
 
-@media(max-width:768px){
+.footer-links a:hover{
+    text-decoration:underline;
+}
+
+
+/* =========================
+   TABLET RESPONSIVE
+========================= */
+
+@media screen and (max-width: 992px){
 
     .hero{
         flex-direction:column;
         text-align:center;
+        padding-top:140px;
+        gap:50px;
     }
 
     .hero-left,
@@ -250,195 +352,128 @@ footer{
     }
 
     .hero h1{
-        font-size:40px;
+        font-size:42px;
+        line-height:1.4;
+    }
+
+    .hero p{
+        font-size:16px;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+        flex-wrap:wrap;
     }
 
     .register-container{
         grid-template-columns:1fr;
     }
 
+    header{
+        flex-direction:column;
+        gap:20px;
+        padding:20px;
+    }
+
     nav ul{
         flex-wrap:wrap;
         justify-content:center;
+        gap:15px;
     }
-
-}
-
-/* =========================
-   MOBILE RESPONSIVE DESIGN
-========================= */
-
-@media screen and (max-width: 992px){
-
-    /* HERO SECTION */
-
-    .hero{
-
-        flex-direction: column;
-
-        text-align: center;
-
-        padding-top: 140px;
-
-        gap: 50px;
-    }
-
-    .hero-left,
-    .hero-right{
-
-        width: 100%;
-    }
-
-    .hero h1{
-
-        font-size: 42px;
-
-        line-height: 1.4;
-    }
-
-    .hero p{
-
-        font-size: 16px;
-    }
-
-    .hero-buttons{
-
-        justify-content: center;
-
-        flex-wrap: wrap;
-    }
-
-    /* REGISTER SECTION */
-
-    .register-container{
-
-        grid-template-columns: 1fr;
-    }
-
-    /* NAVBAR */
-
-    header{
-
-        flex-direction: column;
-
-        gap: 20px;
-
-        padding: 20px;
-    }
-
-    nav ul{
-
-        flex-wrap: wrap;
-
-        justify-content: center;
-
-        gap: 15px;
-    }
-
-    /* COURSE & BENEFITS */
 
     .course-grid,
-    .benefits-grid,
-    .testimonial-grid{
-
-        grid-template-columns: 1fr;
+    .benefits-grid{
+        grid-template-columns:1fr;
     }
 
-    /* SECTION TITLES */
-
     .section-title h2{
-
-        font-size: 36px;
+        font-size:36px;
     }
 
     .register-left h2{
-
-        font-size: 36px;
+        font-size:36px;
     }
 
 }
 
 
-/* EXTRA SMALL DEVICES */
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
 
 @media screen and (max-width: 600px){
 
     .hero{
-
-        padding: 130px 20px 60px;
+        padding:130px 20px 60px;
     }
 
     .hero h1{
-
-        font-size: 32px;
+        font-size:32px;
     }
 
     .hero p{
-
-        font-size: 15px;
+        font-size:15px;
     }
 
     .btn{
-
-        width: 100%;
-
-        text-align: center;
+        width:100%;
+        text-align:center;
     }
 
     .hero-buttons{
-
-        flex-direction: column;
+        flex-direction:column;
     }
 
     .glass-card{
-
-        padding: 25px;
+        padding:25px;
     }
 
     .glass-card h2{
-
-        font-size: 26px;
+        font-size:26px;
     }
 
     .section-title h2{
-
-        font-size: 30px;
+        font-size:30px;
     }
 
     .stat-box h2{
-
-        font-size: 34px;
+        font-size:34px;
     }
 
     .register-form{
-
-        padding: 25px;
+        padding:25px;
     }
 
     input,
     select,
     textarea{
-
-        font-size: 15px;
+        font-size:15px;
     }
 
     button{
-
-        width: 100%;
+        width:100%;
     }
 
     footer{
-
-        padding: 50px 20px;
+        padding:50px 20px;
     }
 
     .footer-links{
+        display:flex;
+        flex-direction:column;
+        gap:15px;
+    }
 
-        display: flex;
+    .logo{
+        font-size:22px;
+    }
 
-        flex-direction: column;
+    nav ul{
+        gap:10px;
+    }
 
-        gap: 15px;
+    nav ul li a{
+        font-size:14px;
     }
 
 }

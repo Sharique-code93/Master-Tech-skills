@@ -180,29 +180,62 @@
 
             <div class="register-form">
 
-                <form action="https://formsubmit.co/shariquesheikh296@gmail.com" method="POST">
+                <form action="https://formsubmit.co/YOUR_GMAIL@gmail.com" method="POST">
 
-                    <input type="text" placeholder="Full Name" required>
+    <!-- Full Name -->
+    <input type="text"
+           name="name"
+           placeholder="Full Name"
+           required>
 
-                    <input type="email" placeholder="Email Address" required>
+    <!-- Email -->
+    <input type="email"
+           name="email"
+           placeholder="Email Address"
+           required>
 
-                    <input type="tel" placeholder="Mobile Number" required>
+    <!-- Phone -->
+    <input type="tel"
+           name="phone"
+           placeholder="Mobile Number"
+           required>
 
-                    <select>
-                        <option>Experience Level</option>
-                        <option>Fresher</option>
-                        <option>0-2 Years</option>
-                        <option>2-5 Years</option>
-                        <option>5+ Years</option>
-                    </select>
+    <!-- Experience -->
+    <select name="experience">
 
-                    <textarea rows="4" placeholder="Your Message"></textarea>
+        <option>Experience Level</option>
 
-                    <button type="submit">
-                        Submit Registration
-                    </button>
+        <option>Fresher</option>
 
-                </form>
+        <option>0-2 Years</option>
+
+        <option>2-5 Years</option>
+
+        <option>5+ Years</option>
+
+    </select>
+
+    <!-- Message -->
+    <textarea name="message"
+              rows="4"
+              placeholder="Your Message"></textarea>
+
+    <!-- Submit Button -->
+    <button type="submit">
+        Submit Registration
+    </button>
+
+    <!-- Disable Captcha -->
+    <input type="hidden"
+           name="_captcha"
+           value="false">
+
+    <!-- Redirect After Submit -->
+    <input type="hidden"
+           name="_next"
+           value="https://sharique-code93.github.io/Master-Tech-skills/thankyou.html">
+
+</form>
 
             </div>
 

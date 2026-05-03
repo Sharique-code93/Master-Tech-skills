@@ -16,8 +16,11 @@
 /* BODY */
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #f8fafc, #e2e8f0);
     color: #1e293b;
+
+    background: linear-gradient(-45deg, #e0f2fe, #f8fafc, #e2e8f0, #dbeafe);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
 }
 
 /* NAVBAR */
@@ -55,6 +58,17 @@ nav a {
 
 nav a:hover {
     color: var(--primary);
+}
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 /* HERO */

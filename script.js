@@ -1,4 +1,5 @@
-const elements = document.querySelectorAll('.fade-up, .fade-right');
+// SCROLL ANIMATION
+const elements = document.querySelectorAll('.fade-up');
 
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {

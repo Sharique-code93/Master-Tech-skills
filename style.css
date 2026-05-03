@@ -58,16 +58,22 @@ nav a:hover {
 }
 
 /* HERO */
-.hero {
-    display: flex;
-    justify-content: space-between;
-    padding: 80px 60px;
-    align-items: center;
-    background: linear-gradient(to right, #f8fafc, #e0f2fe);
-}
-
 .hero-left {
     max-width: 50%;
+}
+
+/* ✅ ADD HERE */
+.hero-right img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+.hero-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .hero h1 {

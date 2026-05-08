@@ -300,67 +300,48 @@ section {
     width: 50%;
 }
 
-```css id="lm29ew"
-/* =========================================
-   ABOUT TRAINER SECTION
-========================================= */
+/* TRAINER CARD */
 
-.about-trainer-section {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 40px;
+.trainer-card {
 
     background: white;
 
-    padding: 40px;
+    padding: 35px;
 
     border-radius: 20px;
+
+    text-align: center;
 
     box-shadow: 0 10px 40px rgba(0,0,0,0.08);
 
     height: 100%;
 }
 
-/* IMAGE */
-
-.about-trainer-image {
-
-    width: 45%;
-}
-
-.about-trainer-image img {
+.trainer-card img {
 
     width: 100%;
 
-    max-width: 320px;
+    max-width: 280px;
 
-    height: 420px;
+    height: 350px;
 
     object-fit: cover;
 
     border-radius: 20px;
 
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    margin-bottom: 20px;
+
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 
     transition: 0.4s;
 }
 
-.about-trainer-image img:hover {
+.trainer-card img:hover {
 
-    transform: scale(1.02);
+    transform: scale(1.03);
 }
 
-/* CONTENT */
-
-.about-trainer-content {
-
-    width: 55%;
-}
-
-.trainer-badge {
+.trainer-card span {
 
     display: inline-block;
 
@@ -368,7 +349,7 @@ section {
 
     color: var(--primary);
 
-    padding: 8px 18px;
+    padding: 8px 16px;
 
     border-radius: 30px;
 
@@ -376,101 +357,159 @@ section {
 
     font-weight: 600;
 
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-.about-trainer-content h2 {
+.trainer-card h2 {
 
-    font-size: 38px;
-
-    line-height: 1.3;
+    font-size: 34px;
 
     color: var(--primary);
 
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
-.about-trainer-content p {
+.trainer-card p {
 
     color: #475569;
 
-    line-height: 1.9;
+    line-height: 1.7;
 
-    margin-bottom: 20px;
-
-    font-size: 16px;
+    margin-bottom: 10px;
 }
 
-/* FEATURES */
-
-.trainer-features {
+.trainer-points {
 
     margin-top: 20px;
 }
 
-.feature-item {
-
-    margin-bottom: 15px;
-
-    font-size: 16px;
+.trainer-points p {
 
     font-weight: 500;
-
-    color: #0f172a;
 }
 
-/* REGISTER SECTION */
+/* FORM */
 
-.register-container {
+input,
+select,
+textarea {
 
-    display: flex;
+    width: 100%;
 
-    gap: 40px;
+    padding: 12px;
 
-    align-items: stretch;
+    margin: 10px 0;
+
+    border-radius: 6px;
+
+    border: 1px solid #cbd5e1;
 }
 
-.register-left {
+button {
 
-    width: 55%;
+    background: var(--secondary);
+
+    color: white;
+
+    border: none;
+
+    padding: 12px 20px;
+
+    border-radius: 6px;
+
+    cursor: pointer;
 }
 
-.register-form {
+/* FOOTER */
 
-    width: 45%;
+footer {
+
+    text-align: center;
+
+    padding: 30px;
+
+    background: white;
+}
+
+.footer-links a {
+
+    margin: 0 10px;
+
+    color: var(--dark);
+
+    text-decoration: none;
 }
 
 /* MOBILE RESPONSIVE */
 
-@media(max-width:992px){
+@media(max-width:768px){
 
-    .about-trainer-section {
+    header {
 
         flex-direction: column;
+
+        gap: 10px;
+
+        padding: 20px;
 
         text-align: center;
     }
 
-    .about-trainer-image,
-    .about-trainer-content {
+    nav {
 
         width: 100%;
     }
 
-    .about-trainer-image img {
+    nav ul {
 
-        max-width: 280px;
+        flex-wrap: wrap;
 
-        height: auto;
+        justify-content: center;
+
+        gap: 10px;
     }
 
-    .about-trainer-content h2 {
+    .hero {
 
-        font-size: 30px;
+        flex-direction: column;
+
+        text-align: center;
+
+        padding: 40px 20px;
     }
-}
 
-@media(max-width:768px){
+    .hero-left,
+    .hero-right {
+
+        width: 100%;
+    }
+
+    .hero-right {
+
+        justify-content: center;
+
+        margin-top: 20px;
+    }
+
+    .hero-right img {
+
+        max-width: 300px;
+    }
+
+    .hero h1 {
+
+        font-size: 28px;
+    }
+
+    .stats-section {
+
+        flex-direction: column;
+    }
+
+    .stat-box {
+
+        width: 100%;
+    }
 
     .register-container {
 
@@ -483,24 +522,21 @@ section {
         width: 100%;
     }
 
-    .about-trainer-section {
+    .trainer-card {
 
         padding: 25px 20px;
     }
 
-    .about-trainer-content h2 {
+    .trainer-card img {
 
-        font-size: 26px;
+        max-width: 240px;
+
+        height: auto;
     }
 
-    .about-trainer-content p {
+    .trainer-card h2 {
 
-        font-size: 15px;
-    }
-
-    .feature-item {
-
-        font-size: 15px;
+        font-size: 28px;
     }
 }
 ```

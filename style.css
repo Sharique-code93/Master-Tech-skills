@@ -123,6 +123,54 @@ nav a:hover{
     color:var(--secondary);
 }
 
+/* REMOVE EXTRA SPACES */
+
+section{
+    margin:0;
+    padding:70px 60px;
+}
+
+/* COURSE SECTION */
+
+.course-section{
+    padding-bottom:40px;
+}
+
+/* BENEFITS SECTION */
+
+.benefits-section{
+    padding-top:40px;
+}
+
+/* TITLE SPACE FIX */
+
+.section-title{
+    margin-bottom:40px;
+}
+
+/* BENEFIT CARDS */
+
+.benefits-grid{
+    margin-top:20px;
+}
+
+/* MOBILE FIX */
+
+@media(max-width:768px){
+
+    section{
+        padding:50px 20px;
+    }
+
+    .course-section{
+        padding-bottom:20px;
+    }
+
+    .benefits-section{
+        padding-top:20px;
+    }
+}
+
 /* =========================
    HERO SECTION
 ========================= */

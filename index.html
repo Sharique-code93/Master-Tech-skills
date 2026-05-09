@@ -1,145 +1,210 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ProSkill Hub Tech</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ProSkill Hub Tech - Oracle SQL & PL/SQL Training</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<style>
-:root{
-  --primary:#1e3a8a;
-  --secondary:#ff6b00;
-  --accent:#22c55e;
-}
-
-*{margin:0;padding:0;box-sizing:border-box;}
-
-body{
-  font-family:'Poppins',sans-serif;
-  background:linear-gradient(-45deg,#e0f2fe,#f8fafc,#e2e8f0,#dbeafe);
-  background-size:400% 400%;
-  animation:bg 10s infinite;
-}
-
-@keyframes bg{
-  0%{background-position:0%}
-  50%{background-position:100%}
-  100%{background-position:0%}
-}
-
-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px 20px;
-  background:#fff;
-}
-
-.logo{
-  font-size:24px;
-  font-weight:700;
-  color:var(--primary);
-}
-.logo span{color:var(--secondary);}
-
-nav ul{
-  display:flex;
-  gap:20px;
-  list-style:none;
-}
-
-nav a{
-  text-decoration:none;
-  color:#000;
-  font-weight:600;
-}
-
-.hero{
-  display:flex;
-  flex-wrap:wrap;
-  align-items:center;
-  padding:40px 20px;
-}
-
-.hero-left{flex:1;}
-.hero-right{flex:1;text-align:center;}
-
-.hero h1{
-  font-size:36px;
-  color:var(--primary);
-}
-
-.hero p{
-  margin:15px 0;
-}
-
-.btn{
-  display:inline-block;
-  padding:12px 18px;
-  border-radius:8px;
-  font-weight:600;
-  margin-right:10px;
-}
-
-.primary{
-  background:var(--secondary);
-  color:#fff;
-}
-
-.whatsapp{
-  background:var(--accent);
-  color:#fff;
-}
-
-.hero img{
-  max-width:350px;
-  border-radius:10px;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-  .hero{
-    flex-direction:column;
-    text-align:center;
-  }
-}
-</style>
+  <!-- Link to external CSS (or paste the CSS below into style.css) -->
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>
-  <h2 class="logo">ProSkill Hub<span>Tech</span></h2>
-  <nav>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Course</a></li>
-      <li><a href="#">Register</a></li>
-    </ul>
-  </nav>
-</header>
+  <!-- Header / Navbar -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <h2 class="logo">ProSkill Hub<span>Tech</span></h2>
 
-<section class="hero">
-  <div class="hero-left">
-    <h1>Become Oracle SQL & PL/SQL Expert</h1>
-    <p>Learn SQL, PL/SQL, Real-Time Projects & Crack Interviews.</p>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="hamburger"></span>
+      </button>
 
-    <!-- YOUR BUTTONS -->
-    <a href="#register" class="btn primary">Enroll Now</a>
-    <a href="https://wa.me/919730400743" class="btn whatsapp">WhatsApp</a>
+      <nav class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#course">Course</a></li>
+          <li><a href="#benefits">Benefits</a></li>
+          <li><a href="#register">Register</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-  </div>
+  <!-- Hero -->
+  <main>
+    <section id="home" class="hero section container">
+      <div class="hero-left fade-up">
+        <span class="badge">🔥 Live Online Training</span>
 
-  <div class="hero-right">
-    <img src="glenn-carstens-peters-npxXWgQ33ZQ-unsplash.jpg">
-  </div>
-</section>
+        <h1>Become Oracle SQL & <br> PL/SQL Expert</h1>
 
+        <p class="lead">
+          Learn SQL, PL/SQL, Real-Time Projects, Performance Tuning & Crack Interviews with Industry Experts.
+        </p>
+
+        <div class="buttons">
+          <a href="#register" class="btn primary">Enroll Now</a>
+          <a href="https://wa.me/919730400743" class="btn whatsapp" target="_blank" rel="noopener">WhatsApp</a>
+        </div>
+      </div>
+
+      <div class="hero-right fade-up">
+        <img src="glenn-carstens-peters-npxXWgQ33ZQ-unsplash.jpg" alt="students">
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="stats-section section container">
+      <div class="stat-box fade-up">
+        <h3>5+ years of experience</h3>
+        <p>Professional in IT</p>
+      </div>
+
+      <div class="stat-box fade-up">
+        <h3>100+</h3>
+        <p>Interview Questions</p>
+      </div>
+
+      <div class="stat-box fade-up">
+        <h3>50+</h3>
+        <p>Production Scenarios</p>
+      </div>
+
+      <div class="stat-box fade-up">
+        <h3>Call support</h3>
+        <p>Support</p>
+      </div>
+    </section>
+
+    <!-- Course -->
+    <section id="course" class="course-section section container">
+      <div class="section-title fade-up">
+        <h2>Course Topics</h2>
+        <p>Industry-ready Oracle SQL & PL/SQL training modules</p>
+      </div>
+
+      <div class="course-grid fade-up">
+        <div class="course-card">Oracle SQL Fundamentals</div>
+        <div class="course-card">Joins & Subqueries</div>
+        <div class="course-card">Stored Procedures</div>
+        <div class="course-card">Functions & Packages</div>
+        <div class="course-card">Triggers</div>
+        <div class="course-card">Collections</div>
+        <div class="course-card">Bulk Collect & FORALL</div>
+        <div class="course-card">Performance Tuning</div>
+        <div class="course-card">Debugging</div>
+        <div class="course-card">Interview Preparation</div>
+      </div>
+    </section>
+
+    <!-- Benefits -->
+    <section id="benefits" class="benefits-section section container">
+      <div class="section-title fade-up">
+        <h2>Why Students Join Us?</h2>
+      </div>
+
+      <div class="benefits-grid">
+        <div class="benefit-card fade-up">
+          <div class="icon">💻</div>
+          <h3>Live Practical Training</h3>
+          <p>Hands-on coding with real-time Oracle projects.</p>
+        </div>
+
+        <div class="benefit-card fade-up">
+          <div class="icon">🎯</div>
+          <h3>Interview Focused</h3>
+          <p>Scenario-based interview preparation and mock sessions.</p>
+        </div>
+
+        <div class="benefit-card fade-up">
+          <div class="icon">📚</div>
+          <h3>Assignments</h3>
+          <p>Daily practice tasks and SQL challenges.</p>
+        </div>
+
+        <div class="benefit-card fade-up">
+          <div class="icon">🏆</div>
+          <h3>Career Guidance</h3>
+          <p>Resume support and career roadmap guidance.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Registration -->
+    <section id="register" class="register-section section container">
+      <div class="register-container">
+        <div class="trainer-card fade-up">
+          <div class="trainer-image">
+            <img src="images/sharique.png" alt="Sharique Sheikh">
+          </div>
+
+          <div class="trainer-content">
+            <span class="trainer-tag">Founder & Trainer</span>
+
+            <h2>Transform Your Career Into Success: Learn Oracle SQL & PL/SQL With Sharique Sheikh!</h2>
+
+            <p>Welcome to <strong>ProSkill Hub Tech</strong>, where students and professionals learn Oracle SQL, PL/SQL, Real-Time Projects, Performance Tuning, and Interview Preparation through practical industry-level training.</p>
+
+            <div class="trainer-points">
+              <p>✔ Expert Oracle Training</p>
+              <p>✔ Real-Time Production Scenarios</p>
+              <p>✔ Mock Interviews & Resume Guidance</p>
+              <p>✔ Practical Hands-On Sessions</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="register-form fade-up">
+          <form action="https://formsubmit.co/shariquesheikh296@gmail.com" method="POST" class="form">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+            <input type="tel" name="phone" placeholder="Mobile Number" required>
+
+            <select name="experience" required>
+              <option value="">Experience Level</option>
+              <option>Fresher</option>
+              <option>0-2 Years</option>
+              <option>2-5 Years</option>
+              <option>5+ Years</option>
+            </select>
+
+            <textarea name="message" rows="4" placeholder="Your Message"></textarea>
+
+            <button type="submit" class="btn primary">Submit Registration</button>
+
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://sharique-code93.github.io/proskillhub-tech/thankyou.html">
+          </form>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="contact" class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <h3>Contact</h3>
+        <p>Email: shariquesheikh296@gmail.com</p>
+        <p>Phone: +91 9730400743</p>
+      </div>
+
+      <div class="footer-links">
+        <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://wa.me/919730400743" target="_blank" rel="noopener">WhatsApp</a>
+      </div>
+    </div>
+
+    <p class="copyright">© 2026 ProSkill Hub Tech. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Link to external JS (or paste the JS below into script.js) -->
+  <script src="script.js"></script>
 </body>
 </html>
-
-
-

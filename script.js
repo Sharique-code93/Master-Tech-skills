@@ -42,3 +42,39 @@ elements.forEach(el => observer.observe(el));
     }
   });
 </script>
+
+
+<script>
+  (function(){
+    const header = document.querySelector('header');
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelectorAll('nav a');
+
+    if(!navToggle) return;
+
+    navToggle.addEventListener('click', () => {
+      const isOpen = header.classList.toggle('nav-open');
+      navToggle.setAttribute('aria-expanded', String(isOpen));
+    });
+
+    // Close menu when a nav link is clicked (mobile)
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        if(header.classList.contains('nav-open')){
+          header.classList.remove('nav-open');
+          navToggle.setAttribute('aria-expanded','false');
+        }
+      });
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if(e.key === 'Escape' && header.classList.contains('nav-open')){
+        header.classList.remove('nav-open');
+        navToggle.setAttribute('aria-expanded','false');
+      }
+    });
+  })();
+</script>
+
+

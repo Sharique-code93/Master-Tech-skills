@@ -684,3 +684,102 @@ header.nav-open .nav-toggle .hamburger::after{
   nav{ width:100%; top:60px; }
 }
 
+/* NAV TOGGLE (add near end of file) */
+.nav-toggle{
+  display:none;
+  background:transparent;
+  border:0;
+  width:44px;
+  height:44px;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  padding:6px;
+}
+.nav-toggle .hamburger{
+  display:block;
+  width:22px;
+  height:2px;
+  background:var(--dark);
+  position:relative;
+  transition:all .25s ease;
+}
+.nav-toggle .hamburger::before,
+.nav-toggle .hamburger::after{
+  content:"";
+  position:absolute;
+  left:0;
+  width:22px;
+  height:2px;
+  background:var(--dark);
+  transition:all .25s ease;
+}
+.nav-toggle .hamburger::before{ top:-7px; }
+.nav-toggle .hamburger::after{ top:7px; }
+
+/* Off-canvas nav for small screens */
+@media (max-width: 900px){
+  .nav-toggle{ display:flex; }
+
+  /* hide desktop nav visually but keep accessible until opened */
+  nav{
+    position:fixed;
+    top:70px;
+    right:0;
+    background:rgba(255,255,255,0.98);
+    width:260px;
+    height:calc(100vh - 70px);
+    transform:translateX(110%);
+    transition:transform .28s ease;
+    box-shadow:-8px 0 30px rgba(0,0,0,0.08);
+    z-index:1000;
+    padding:18px;
+  }
+
+  nav ul{
+    flex-direction:column;
+    gap:18px;
+    list-style:none;
+    display:flex;
+    padding:8px 0;
+    margin:0;
+  }
+
+  nav a{
+    display:block;
+    padding:10px 6px;
+    font-size:16px;
+    color:var(--dark);
+  }
+
+  /* When header has .nav-open, slide nav into view */
+  header.nav-open nav{
+    transform:translateX(0%);
+  }
+
+  /* transform hamburger into X when open */
+  header.nav-open .nav-toggle .hamburger{
+    background:transparent;
+  }
+  header.nav-open .nav-toggle .hamburger::before{
+    transform:rotate(45deg) translate(4px,4px);
+    top:0;
+  }
+  header.nav-open .nav-toggle .hamburger::after{
+    transform:rotate(-45deg) translate(4px,-4px);
+    top:0;
+  }
+
+  /* reduce header padding on mobile */
+  header{
+    padding:12px 18px;
+  }
+}
+
+/* Ensure nav is horizontal on larger screens (existing rules remain) */
+@media (min-width: 901px){
+  nav{ position:static; transform:none; height:auto; width:auto; box-shadow:none; padding:0; }
+  nav ul{ display:flex; gap:30px; align-items:center; }
+  .nav-toggle{ display:none; }
+}
+

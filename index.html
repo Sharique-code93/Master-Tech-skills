@@ -330,73 +330,114 @@
 
 
   <!-- Scripts -->
-  <script>
-    // NAV TOGGLE
-    (function(){
-      const header = document.querySelector('header');
-      const navToggle = document.querySelector('.nav-toggle');
-      const navLinks = document.querySelectorAll('nav a');
+ <script>
+  (function(){
+    // Elements
+    const header = document.querySelector('header');
+    const navToggle = document.querySelector('.nav-toggle');
+    const navLinks = document.querySelectorAll('nav a');
+    const form = document.getElementById('registerForm');
+    const feedback = document.getElementById('formFeedback');
+    const callBtn = document.getElementById('callBtn');
 
-      if(navToggle){
-        navToggle.addEventListener('click', () => {
-          const isOpen = header.classList.toggle('nav-open');
-          navToggle.setAttribute('aria-expanded', String(isOpen));
-        });
+    // NAV TOGGLE: open/close mobile nav, transform hamburger, ensure nav overlays content
+    if(navToggle && header){
+      navToggle.addEventListener('click', () => {
+        const isOpen = header.classList.toggle('nav-open');
+        navToggle.setAttribute('aria-expanded', String(isOpen));
+        const navEl = document.querySelector('nav');
+        if(navEl){
+          navEl.style.zIndex = isOpen ? '1200' : '';
+        }
+      });
 
+      // Close nav when a link is clicked (mobile)
+      if(navLinks && navLinks.length){
         navLinks.forEach(link => {
           link.addEventListener('click', () => {
             if(header.classList.contains('nav-open')){
               header.classList.remove('nav-open');
               navToggle.setAttribute('aria-expanded','false');
+              const navEl = document.querySelector('nav');
+              if(navEl) navEl.style.zIndex = '';
             }
           });
-        });
-
-        document.addEventListener('keydown', (e) => {
-          if(e.key === 'Escape' && header.classList.contains('nav-open')){
-            header.classList.remove('nav-open');
-            navToggle.setAttribute('aria-expanded','false');
-          }
         });
       }
-    })();
 
-    // FORM UX + CALL BUTTON
-    (function(){
-      const form = document.getElementById('registerForm');
-      const feedback = document.getElementById('formFeedback');
-      const callBtn = document.getElementById('callBtn');
-
-      callBtn.addEventListener('click', () => {
-        const wa = 'https://wa.me/919730400743';
-        window.open(wa, '_blank');
+      // Close nav on Escape
+      document.addEventListener('keydown', (e) => {
+        if(e.key === 'Escape' && header.classList.contains('nav-open')){
+          header.classList.remove('nav-open');
+          navToggle.setAttribute('aria-expanded','false');
+          const navEl = document.querySelector('nav');
+          if(navEl) navEl.style.zIndex = '';
+        }
       });
+    }
+
+    // CALL / WHATSAPP button: open WhatsApp chat (fallback to tel if needed)
+    if(callBtn){
+      callBtn.addEventListener('click', () => {
+        const waUrl = 'https://wa.me/919730400743';
+        try {
+          window.open(waUrl, '_blank');
+        } catch (err) {
+          // fallback to tel
+          window.location.href = 'tel:+919730400743';
+        }
+      });
+    }
+
+    // FORM UX: client-side validation feedback and submit message
+    if(form){
+      // Prevent errors if feedback element missing
+      const setFeedback = (text, color) => {
+        if(feedback){
+          feedback.textContent = text;
+          feedback.style.color = color || '';
+        }
+      };
 
       form.addEventListener('submit', (e) => {
+        // Use HTML5 validity; if invalid, prevent submit and show message
         if(!form.checkValidity()){
           e.preventDefault();
-          feedback.textContent = 'Please complete all required fields correctly.';
-          feedback.style.color = '#b91c1c';
+          setFeedback('Please complete all required fields correctly.', '#b91c1c');
           Array.from(form.elements).forEach(el => {
-            if(el.willValidate && !el.checkValidity()){
-              el.style.borderColor = '#fca5a5';
-            } else if(el.style){
-              el.style.borderColor = '';
+            try {
+              if(el.willValidate && !el.checkValidity()){
+                el.style.borderColor = '#fca5a5';
+              } else if(el.style){
+                el.style.borderColor = '';
+              }
+            } catch (err) {
+              // ignore non-form elements
             }
           });
+          // focus first invalid field for accessibility
+          const firstInvalid = form.querySelector(':invalid');
+          if(firstInvalid && typeof firstInvalid.focus === 'function') firstInvalid.focus();
           return;
         }
-        feedback.textContent = 'Submitting your registration…';
-        feedback.style.color = '#065f46';
+
+        // Show submitting message (form will proceed to action/_next)
+        setFeedback('Submitting your registration…', '#065f46');
       });
 
+      // Clear error highlight and feedback on input
       form.querySelectorAll('input, textarea, select').forEach(el => {
         el.addEventListener('input', () => {
-          el.style.borderColor = '';
-          feedback.textContent = '';
+          try { el.style.borderColor = ''; } catch (err) {}
+          setFeedback('', '');
         });
       });
-    })();
-  </script>
+    }
+
+    // Defensive no-op if elements are missing
+    // (prevents console errors on pages without register/nav)
+  })();
+</script>
+
 </body>
 </html>

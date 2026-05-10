@@ -172,12 +172,11 @@ const isReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced
   }
 })();
 
-/* UPCOMING EVENTS: sliding reveal with stagger and alternating directions */
+/* UPCOMING EVENTS: sliding reveal with stagger and alternating directions (DE-DUPED) */
 (function initUpcomingEvents() {
   const eventCards = $$('.events-grid .event-card');
   if (!eventCards.length) return;
 
-  // Respect reduced motion: reveal immediately
   if (isReducedMotion) {
     eventCards.forEach(el => el.classList.add('slide-in'));
     return;
@@ -195,12 +194,10 @@ const isReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced
       entries.forEach(entry => {
         if (!entry.isIntersecting) return;
         const el = entry.target;
-        // compute index among all event cards for stagger
         const all = Array.from(document.querySelectorAll('.events-grid .event-card'));
         const idx = all.indexOf(el);
         const staggerIndex = Math.min(8, idx + 1);
         el.classList.add(`stagger-${staggerIndex}`);
-        // add slide-in after a tiny timeout to ensure transition-delay applies
         requestAnimationFrame(() => {
           el.classList.add('slide-in');
         });
@@ -210,7 +207,6 @@ const isReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced
 
     eventCards.forEach(el => observer.observe(el));
   } else {
-    // fallback
     eventCards.forEach((el, i) => {
       el.classList.add(`stagger-${Math.min(8, i + 1)}`, 'slide-in');
     });
@@ -221,7 +217,6 @@ const isReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced
     card.addEventListener('keydown', (ev) => {
       if (ev.key === 'Enter' || ev.key === ' ') {
         ev.preventDefault();
-        // simple focus feedback: toggle a quick pulse
         card.classList.add('focus-activated');
         setTimeout(() => card.classList.remove('focus-activated'), 600);
       }

@@ -237,3 +237,151 @@ if (isReducedMotion) {
   document.documentElement.style.overflowX = 'hidden';
   document.body.style.overflowX = 'hidden';
 })();
+
+/* =========================
+   Background particle network
+   ========================= */
+(function initBackgroundVisual() {
+  const canvas = document.getElementById('bg-canvas');
+  if (!canvas) return;
+
+  const ctx = canvas.getContext('2d', { alpha: true });
+  let width = 0;
+  let height = 0;
+  let particles = [];
+  const PARTICLE_COUNT = Math.max(18, Math.floor((window.innerWidth * window.innerHeight) / 90000)); // responsive count
+  const MAX_DIST = 140; // connection distance
+  const isReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function resize() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    width = canvas.clientWidth = window.innerWidth;
+    height = canvas.clientHeight = window.innerHeight;
+    canvas.width = Math.round(width * dpr);
+    canvas.height = Math.round(height * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function rand(min, max) { return Math.random() * (max - min) + min; }
+
+  function createParticles() {
+    particles = [];
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      particles.push({
+        x: rand(0, width),
+        y: rand(0, height),
+        vx: rand(-0.25, 0.25),
+        vy: rand(-0.15, 0.15),
+        r: rand(1.6, 3.6),
+        hue: rand(200, 220), // bluish hues
+        alpha: rand(0.18, 0.42)
+      });
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, width, height);
+
+    // subtle background tint (very light)
+    // ctx.fillStyle = 'rgba(250,250,255,0.02)';
+    // ctx.fillRect(0,0,width,height);
+
+    // draw particles
+    for (let p of particles) {
+      ctx.beginPath();
+      ctx.fillStyle = `hsla(${p.hue}, 80%, 60%, ${p.alpha})`;
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // draw connections
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const a = particles[i];
+        const b = particles[j];
+        const dx = a.x - b.x;
+        const dy = a.y - b.y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < MAX_DIST) {
+          const t = 1 - dist / MAX_DIST;
+          ctx.beginPath();
+          ctx.strokeStyle = `rgba(30,58,138,${0.06 * t})`; // subtle navy lines
+          ctx.lineWidth = 1 * t;
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+    }
+  }
+
+  // update positions
+  function update(dt) {
+    for (let p of particles) {
+      p.x += p.vx * dt;
+      p.y += p.vy * dt;
+
+      // gentle wrap-around
+      if (p.x < -20) p.x = width + 20;
+      if (p.x > width + 20) p.x = -20;
+      if (p.y < -20) p.y = height + 20;
+      if (p.y > height + 20) p.y = -20;
+    }
+  }
+
+  // animation loop
+  let last = performance.now();
+  let rafId = null;
+  function loop(now) {
+    const dt = Math.min(60, now - last) / 16.666; // normalize to ~60fps units
+    last = now;
+    update(dt);
+    draw();
+    rafId = requestAnimationFrame(loop);
+  }
+
+  // initialize
+  function start() {
+    resize();
+    createParticles();
+    last = performance.now();
+    if (!isReducedMotion) rafId = requestAnimationFrame(loop);
+    else {
+      // reduced motion: draw a single static frame
+      draw();
+    }
+  }
+
+  // responsive resize with debounce
+  let resizeTimer = null;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      resize();
+      createParticles();
+    }, 120);
+  }, { passive: true });
+
+  // pause when tab not visible to save CPU
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      if (rafId) cancelAnimationFrame(rafId);
+      rafId = null;
+    } else {
+      if (!rafId && !isReducedMotion) {
+        last = performance.now();
+        rafId = requestAnimationFrame(loop);
+      }
+    }
+  });
+
+  // start
+  start();
+
+  // expose a small API for debugging (optional)
+  window.__bgVisual = {
+    restart: () => { if (rafId) cancelAnimationFrame(rafId); start(); },
+    stop: () => { if (rafId) cancelAnimationFrame(rafId); rafId = null; }
+  };
+})();
+

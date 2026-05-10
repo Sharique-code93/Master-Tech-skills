@@ -206,7 +206,7 @@ footer{padding:28px 0;background:transparent;border-top:1px solid rgba(15,23,42,
 
 
 /* =========================
-   Upcoming Events: cube cards + sliding reveal
+   Upcoming Events: cube cards + sliding reveal (DE-DUPED)
    ========================= */
 
 .events-section { padding-top: 36px; padding-bottom: 56px; }
@@ -323,4 +323,5 @@ footer{padding:28px 0;background:transparent;border-top:1px solid rgba(15,23,42,
 @media (prefers-reduced-motion: reduce) {
   .event-card, .cube { transition: none !important; transform: none !important; opacity: 1 !important; }
 }
+
 

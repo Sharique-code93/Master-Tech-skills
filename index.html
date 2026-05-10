@@ -5,12 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ProSkill Hub Tech - Oracle SQL & PL/SQL Training</title>
 
- <!-- Google fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="description" content="ProSkill Hub Tech - Live Oracle SQL & PL/SQL training, real-time projects, performance tuning, and interview preparation." />
+  <meta property="og:title" content="ProSkill Hub Tech - Oracle SQL & PL/SQL Training" />
+  <meta property="og:description" content="Live practical training, mock interviews, real-time projects and career guidance." />
+  <meta property="og:type" content="website" />
 
-  <!-- Link to external CSS (or paste the CSS below into style.css) -->
+  <!-- Google fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Link to external CSS -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -20,15 +25,16 @@
     <div class="container header-inner">
       <h2 class="logo">ProSkill Hub<span>Tech</span></h2>
 
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span class="hamburger"></span>
+      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav-list">
+        <span class="hamburger" aria-hidden="true"></span>
       </button>
 
       <nav class="site-nav" aria-label="Primary">
-        <ul>
+        <ul id="site-nav-list">
           <li><a href="#home">Home</a></li>
           <li><a href="#course">Course</a></li>
           <li><a href="#benefits">Benefits</a></li>
+          <li><a href="#upcoming">Upcoming Events</a></li>
           <li><a href="#register">Register</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -55,7 +61,7 @@
       </div>
 
       <div class="hero-right fade-up">
-        <img src="glenn-carstens-peters-npxXWgQ33ZQ-unsplash.jpg" alt="students">
+        <img src="glenn-carstens-peters-npxXWgQ33ZQ-unsplash.jpg" alt="students learning online">
       </div>
     </section>
 
@@ -136,6 +142,108 @@
       </div>
     </section>
 
+    <!-- Upcoming Events (NEW) -->
+    <section id="upcoming" class="events-section section container">
+      <div class="section-title fade-up">
+        <h2>Upcoming Events</h2>
+        <p>Join our upcoming sessions and workshops — live, hands-on, and interview-focused.</p>
+      </div>
+
+      <div class="events-grid" aria-live="polite">
+        <!-- Top row: support features (from screenshot) -->
+        <article class="event-card cube-card fade-up" tabindex="0" role="article" aria-label="Live Practical Training">
+          <div class="cube">
+            <div class="face face-front">
+              <div class="event-icon">💻</div>
+              <h3>Live Practical Training</h3>
+              <p>Hands-on coding with real-time Oracle projects.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="event-card cube-card fade-up" tabindex="0" role="article" aria-label="Interview Focused">
+          <div class="cube">
+            <div class="face face-front">
+              <div class="event-icon">🎯</div>
+              <h3>Interview Focused</h3>
+              <p>Scenario-based interview preparation and mock sessions.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="event-card cube-card fade-up" tabindex="0" role="article" aria-label="Assignments">
+          <div class="cube">
+            <div class="face face-front">
+              <div class="event-icon">📚</div>
+              <h3>Assignments</h3>
+              <p>Daily practice tasks and SQL challenges.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="event-card cube-card fade-up" tabindex="0" role="article" aria-label="Career Guidance">
+          <div class="cube">
+            <div class="face face-front">
+              <div class="event-icon">🏆</div>
+              <h3>Career Guidance</h3>
+              <p>Resume support and career roadmap guidance.</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Bottom row: technical domains (from screenshot) -->
+        <article class="event-card cube-card fade-up" tabindex="0" role="article" aria-label="Web Development">
+          <div class="cube">
+            <div class="face face-front">
+              <div class="event-icon">🌐</div>
+              <h3>Web Development</h3>
+              <p>React, Node.js, and full-stack mastery.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="event-card cube-card fade-up" tabindex="0" role="article" aria-label="Robotics">
+          <div class="cube">
+            <div class="face face-front">
+              <div class="event-icon">🤖</div>
+              <h3>Robotics</h3>
+              <p>Automation and embedded control systems.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="event-card cube-card fade-up" tabindex="0" role="article" aria-label="Data Science">
+          <div class="cube">
+            <div class="face face-front">
+              <div class="event-icon">📊</div>
+              <h3>Data Science</h3>
+              <p>Data visualization and predictive analytics.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="event-card cube-card fade-up" tabindex="0" role="article" aria-label="Java and Spring">
+          <div class="cube">
+            <div class="face face-front">
+              <div class="event-icon">☕</div>
+              <h3>Java / Spring</h3>
+              <p>Core Java, Spring Boot, and backend fundamentals.</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="event-card cube-card fade-up" tabindex="0" role="article" aria-label="Python Scripting">
+          <div class="cube">
+            <div class="face face-front">
+              <div class="event-icon">🐍</div>
+              <h3>Python Scripting</h3>
+              <p>Automation, scripting, and data tasks with Python.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
     <!-- Registration -->
     <section id="register" class="register-section section container">
       <div class="register-container">
@@ -162,9 +270,9 @@
 
         <aside class="register-form fade-up">
           <form action="https://formsubmit.co/shariquesheikh296@gmail.com" method="POST" class="form">
-            <input type="text" name="name" placeholder="Full Name" required>
-            <input type="email" name="email" placeholder="Email Address" required>
-            <input type="tel" name="phone" placeholder="Mobile Number" required>
+            <input type="text" name="name" placeholder="Full Name" required autocomplete="name">
+            <input type="email" name="email" placeholder="Email Address" required autocomplete="email">
+            <input type="tel" name="phone" placeholder="Mobile Number" required autocomplete="tel">
 
             <select name="experience" required>
               <option value="">Experience Level</option>
@@ -174,7 +282,7 @@
               <option>5+ Years</option>
             </select>
 
-            <textarea name="message" rows="4" placeholder="Your Message"></textarea>
+            <textarea name="message" rows="4" placeholder="Your Message" autocomplete="off"></textarea>
 
             <button type="submit" class="btn primary">Submit Registration</button>
 
@@ -205,7 +313,7 @@
     <p class="copyright">© 2026 ProSkill Hub Tech. All Rights Reserved.</p>
   </footer>
 
-  <!-- Link to external JS (or paste the JS below into script.js) -->
+  <!-- Link to external JS -->
   <script src="script.js"></script>
 </body>
 </html>

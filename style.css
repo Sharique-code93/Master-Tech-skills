@@ -324,4 +324,64 @@ footer{padding:28px 0;background:transparent;border-top:1px solid rgba(15,23,42,
   .event-card, .cube { transition: none !important; transform: none !important; opacity: 1 !important; }
 }
 
+/* =========================
+   Background visualization
+   ========================= */
+
+#bg-visual {
+  position: fixed;
+  inset: 0;
+  z-index: 0; /* behind header/content which use higher z-index */
+  pointer-events: none; /* non-interactive */
+  overflow: hidden;
+}
+
+/* Canvas covers full viewport */
+#bg-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  transform: translateZ(0); /* promote to its own layer */
+  will-change: transform, opacity;
+  opacity: 0.9;
+}
+
+/* SVG blobs sit above canvas but behind content */
+#bg-blobs {
+  position: absolute;
+  inset: 0;
+  width: 120%;
+  height: 120%;
+  left: -10%;
+  top: -6%;
+  z-index: 1;
+  mix-blend-mode: screen;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+/* Slight dark overlay to improve contrast for text */
+#bg-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(15,23,42,0.02));
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Ensure main content sits above the visualization */
+header, main, footer, .site-header, .site-footer {
+  position: relative;
+  z-index: 10;
+}
+
+/* Reduced motion: disable canvas animation and keep static subtle blur */
+@media (prefers-reduced-motion: reduce) {
+  #bg-canvas { opacity: 0.6; }
+  #bg-blobs { transition: none; transform: none; }
+}
+
 

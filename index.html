@@ -19,6 +19,25 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- PASTE THE BACKGROUND VISUALIZATION HERE -->
+  <div id="bg-visual" aria-hidden="true">
+    <canvas id="bg-canvas"></canvas>
+    <svg id="bg-blobs" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" focusable="false" aria-hidden="true">
+      <defs>
+        <linearGradient id="bgGrad" x1="0" x2="1">
+          <stop offset="0%" stop-color="#e0f2fe" stop-opacity="0.9"/>
+          <stop offset="100%" stop-color="#dbeafe" stop-opacity="0.7"/>
+        </linearGradient>
+        <filter id="blurFilter" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="40" />
+        </filter>
+      </defs>
+      <g filter="url(#blurFilter)" opacity="0.9">
+        <path class="blob blob-1" d="M1200 200C1100 80 900 40 700 60C500 80 300 160 160 220C40 270 0 360 0 360L1200 360Z" fill="url(#bgGrad)"/>
+        <path class="blob blob-2" d="M0 420C120 360 320 320 520 340C720 360 920 420 1100 480L1200 600L0 600Z" fill="#f1f5f9" opacity="0.6"/>
+      </g>
+    </svg>
+  </div>
 
   <!-- Header / Navbar -->
   <header class="site-header">
@@ -26,7 +45,7 @@
       <h2 class="logo">ProSkill Hub<span>Tech</span></h2>
 
       <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav-list">
-        <span class="hamburger" aria-hidden="true"></span>
+        <span class="hamburger"></span>
       </button>
 
       <nav class="site-nav" aria-label="Primary">
@@ -142,7 +161,7 @@
       </div>
     </section>
 
-    <!-- Upcoming Events (DE-DUPED) -->
+    <!-- Upcoming Events -->
     <section id="upcoming" class="events-section section container">
       <div class="section-title fade-up">
         <h2>Upcoming Events</h2>
@@ -150,7 +169,6 @@
       </div>
 
       <div class="events-grid" aria-live="polite">
-        <!-- Only unique technical domain cards (duplicates removed) -->
         <article class="event-card cube-card fade-up" tabindex="0" role="article" aria-label="Web Development">
           <div class="cube">
             <div class="face face-front">
@@ -241,7 +259,7 @@
               <option>5+ Years</option>
             </select>
 
-            <textarea name="message" rows="4" placeholder="Your Message" autocomplete="off"></textarea>
+            <textarea name="message" rows="4" placeholder="Your Message"></textarea>
 
             <button type="submit" class="btn primary">Submit Registration</button>
 
